@@ -66,9 +66,7 @@ export class Dashboard extends Component {
         }
     }
 
-    changeText(currentText) {
-        this.setState({ currentText });
-    }
+    
     render() {
         return (
             <div id="dashboard-appbar">

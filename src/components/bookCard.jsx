@@ -1,0 +1,65 @@
+
+import React, { Component } from 'react';
+import data from "../assets/bookDetails.json";
+import Card from '@material-ui/core/Card';
+import { createMuiTheme, Divider, Button } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
+const theme = createMuiTheme({
+    overrides: {
+        MuiIconButton: {
+            root: {
+                padding: "6PX",
+                fontSize: "0.5em"
+            }
+        },
+    },
+})
+class BookCard1 extends Component {
+    render() {
+        return (
+            <div className="cardstyle">
+                {data.book_Details.map((books, i) => {
+                    return (
+                        <div className="card-div">
+                            <MuiThemeProvider theme={theme}>
+                                <Card className="bookcard" style={{ backgroundColor: "aliceblue", marginTop: "16px" }}>
+                                    <div className="bookdetails">
+                                        <div>
+                                            <a href={books.url}>
+                                                <img src={books.logo} className="image" />
+                                            </a>
+                                        </div>
+                                        < div><Divider type='horizontal' /></div>
+                                        <div style={{ backgroundColor: "white" }} className="carddown">
+                                            {books.roles.map(function (role, i) {
+                                                return <div  id="cardtext">
+                                                    <h5>{role.title}</h5>
+                                                    <div className="authorname">
+                                                        <span>{role.authorname}</span>
+                                                    </div>
+                                                    <div className="price">
+                                                        <p>{role.price}</p>
+                                                    </div>
+                                                </div>
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <Button type="tagbtn" id="tag">
+                                            <text className="texttag"> ADD TO BAG</text>
+                                        </Button>
+                                        <Button className="whishlistbtn">
+                                            <text className="whishtext">WHISHLIST</text>
+                                        </Button>
+                                    </div>
+                                </Card>
+                            </MuiThemeProvider>
+                        </div>
+                    );
+                })
+                }
+            </div>
+        );
+    }
+}
+export default BookCard1;

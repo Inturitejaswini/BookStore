@@ -53,7 +53,7 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin()
     ],
    resolve: {
-      extensions: ['*', '.js', '.jsx'] //addthislineinwebpack.config.js
+      extensions: ['*', '.js', '.jsx']
    },
    output: {
       path: __dirname + '/dist',

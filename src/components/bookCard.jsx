@@ -17,13 +17,18 @@ const theme = createMuiTheme({
 
 
 class BookCard1 extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            book_Details:[]
+        }
+    }
     render() {
         return (
-            <div className="cardstyle">
-                
+            <div className="cardstyle">            
                 {data.book_Details.map((books, i) => {
                     return (
-                        <div className="card-div">
+                        <div key={i} className="card-div">
                             <MuiThemeProvider theme={theme}>
                                 <Card className="bookcard" style={{ backgroundColor: "aliceblue", marginTop: "16px" }}>
                                     <div className="bookdetails">
@@ -35,7 +40,7 @@ class BookCard1 extends Component {
                                         < div><Divider type='horizontal' /></div>
                                         <div style={{ backgroundColor: "white" }} className="carddown">
                                             {books.roles.map(function (role, i) {
-                                                return <div id="cardtext">
+                                                return <div key={i} id="cardtext">
                                                     <h5>{role.title}</h5>
                                                     <div className="authorname">
                                                         <span>{role.authorname}</span>

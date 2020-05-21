@@ -7,9 +7,12 @@ import { MuiThemeProvider } from '@material-ui/core';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Typography from '@material-ui/core/Typography'
+import Popper from '@material-ui/core/Popper'
+import { Paper} from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
-import { AppBar, InputBase, Button } from '@material-ui/core'
+import { AppBar, InputBase } from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination';
 import BookCard1 from './bookCard';
 const theme = createMuiTheme({
@@ -63,13 +66,19 @@ export class Dashboard extends Component {
             initialState: "Search...",
             currentText: " ",
             open: false,
+            anchorEl: null,
+            open: false,
         }
     }
-
-    changeText(currentText) {
-        this.setState({ currentText });
-    }
+    handleChage(event){
+    this.setState({
+        anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+    })
+}
     render() {
+        const { anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+        const id = open ? 'simple-popper' : undefined;  
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
@@ -98,9 +107,21 @@ export class Dashboard extends Component {
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">Books(15items)</div>
-                    <Button id="btn">
+                    <Button id="btn" aria-describedby={id} onClick="handleChage(); return false;" >
                         <div className="sorttext">sort by relevence</div>
                     </Button>
+                    <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>
+                    <Paper className="more-paper">
+                        <Button id="lablebutton1">
+                            <div className="delete" onClick={this.handleDelete}>
+                                Delete note</div>
+                        </Button>
+                        <Button id="lablebutton3">
+                            <div className="adddrawing">
+                                Add drawing</div>
+                        </Button>
+                    </Paper>
+                </Popper>
                 </div>
                 <BookCard1></BookCard1>
                 <div className="pagination">

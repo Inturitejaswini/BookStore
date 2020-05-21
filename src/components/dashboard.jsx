@@ -113,12 +113,7 @@ export class Dashboard extends Component {
                     <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>
                     <Paper className="more-paper">
                         <Button id="lablebutton1">
-                            <div className="delete" onClick={this.handleDelete}>
-                                Delete note</div>
-                        </Button>
-                        <Button id="lablebutton3">
-                            <div className="adddrawing">
-                                Add drawing</div>
+                            hai
                         </Button>
                     </Paper>
                 </Popper>

@@ -72,9 +72,9 @@ export class Dashboard extends Component {
         }
     }
     handleChage(event){
-        console.log("poper paper",event);
+        console.log("poper paper",event)
     this.setState({
-        anchorEl: (this.state.anchorEl ? null : event.Target)
+        anchorEl: (this.state.anchorEl ? null : event.currentTarget)
     })
 }
 

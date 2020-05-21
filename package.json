@@ -26,7 +26,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
-  
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
@@ -38,6 +37,7 @@
     "less-loader": "^6.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-pagination-library": "^0.1.14",
     "react-router-dom": "^5.2.0",
     "style-loader": "^1.2.1"
   }

@@ -24,9 +24,11 @@ class BookCard1 extends Component {
         }
     }
     render() {
+        let count=0;
         return (
             <div className="cardstyle">            
                 {data.book_Details.map((books, i) => {
+                    count++;
                     return (
                         <div key={i} className="card-div">
                             <MuiThemeProvider theme={theme}>

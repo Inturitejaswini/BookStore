@@ -13,7 +13,7 @@ import { Button } from '@material-ui/core';
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
 import { AppBar, InputBase } from '@material-ui/core'
-import Pagination from '@material-ui/lab/Pagination';
+import Pagination1 from '../components/pagination'
 import BookCard1 from './bookCard';
 const theme = createMuiTheme({
     overrides: {
@@ -68,6 +68,7 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
+            currentPage:1
         }
     }
     handleChage(event){
@@ -75,6 +76,7 @@ export class Dashboard extends Component {
         anchorEl: (this.state.anchorEl ? null : event.currentTarget)
     })
 }
+
     render() {
         const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
@@ -118,10 +120,9 @@ export class Dashboard extends Component {
                     </Paper>
                 </Popper>
                 </div>
+
                 <BookCard1></BookCard1>
-                <div className="pagination">
-                    <Pagination count={10} color="primary" className="paginationnumber" />
-                </div>
+                <Pagination1></Pagination1>
                 <div>
                     <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "black", height: "36px" }}>
                         <Toolbar className="toolbar" >

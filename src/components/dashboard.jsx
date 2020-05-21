@@ -111,8 +111,8 @@ export class Dashboard extends Component {
                         <div className="sorttext">sort by relevence</div>
                     </Button>
                     <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>
-                    <Paper className="more-paper">
-                        <Button id="lablebutton1">
+                    <Paper className="sort-paper">
+                        <Button>
                             hai
                         </Button>
                     </Paper>

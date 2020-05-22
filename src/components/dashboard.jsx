@@ -1,6 +1,5 @@
 
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
 import Toolbar from '@material-ui/core/Toolbar';
 import { createMuiTheme } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
@@ -8,7 +7,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
-import { Paper} from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import image from '../assets/book.png'
 import './dashboard.less'
@@ -32,7 +31,7 @@ const theme = createMuiTheme({
         },
         MuiToolbar: {
             root: {
-                marginTop:"-8px"
+                marginTop: "-8px"
             }
         },
         MuiOutlinedInput: {
@@ -65,6 +64,22 @@ const theme = createMuiTheme({
         }
     },
 })
+const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const res = await axios.get('../assets/bookDetails.json');
+      setPosts(res.data);
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
 export class Dashboard extends Component {
     constructor(props) {
         super(props);
@@ -74,30 +89,33 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            currentPage:1
+            currentPage: 1
         }
     }
-    handleChage(event){
+    handleChage(event) {
         console.log("log".event)
-    this.setState({
-        // anchorEl: (this.state.anchorEl ? null : event.currentTarget)
-    })
-}
+        this.setState({
+            // anchorEl: (this.state.anchorEl)
+        })
+    }
 
     render() {
-        const { anchorEl } = this.state;
-        const open = Boolean(anchorEl);
-        const id = open ? 'simple-popper' : undefined;  
+        const indexOfLastPost = currentPage * postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - postsPerPage;
+        const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+        const paginate = pageNumber => setCurrentPage(pageNumber);
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" title="My App" className="appbar-class" 
-                    style={{ backgroundColor: "Brown",
-                     marginTop: "-7px" ,height:"48px"}}>
+                    <AppBar position="sticky" title="My App" className="appbar-class"
+                        style={{
+                            backgroundColor: "Brown",
+                            marginTop: "-7px", height: "48px"
+                        }}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
-                                <MenuBookIcon id="bookicon1"/>
+                                <MenuBookIcon id="bookicon1" />
                                 <Typography variant="title"
                                     color="textPrimary"
                                     title="bookstore">
@@ -108,31 +126,32 @@ export class Dashboard extends Component {
                                 <InputBase className="input-text"
                                     type="searchIcon"
                                     placeholder="Search.." />
-                                <SearchSharpIcon className="icon"/>
+                                <SearchSharpIcon className="icon" />
                             </div>
                             <div className="carttext">
                                 <div><h5 style={{ cursor: "pointer" }}>Cart</h5></div>
-                                <div><AddShoppingCartSharpIcon id="shopingcart"/> </div>
+                                <div><AddShoppingCartSharpIcon id="shopingcart" /> </div>
                             </div>
                         </Toolbar>
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">Books(15items)</div>
-                    <Button id="btn" aria-describedby={id} onClick={()=>this.handleChage()} >
+                    <Button id="btn" aria-describedby={id} onClick={() => this.handleChage()} >
                         <div className="sorttext">sort by relevence</div>
                     </Button>
-                    <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>
-                    <Paper className="sort-paper">
-                        <Button>
-                            hai
+                    <Popper id={id} open={open} anchorEl={anchorEl} style={{ zIndex: "9999" }}>
+                        <Paper className="sort-paper">
+                            <Button>
+                                hai
                         </Button>
-                    </Paper>
-                </Popper>
+                        </Paper>
+                    </Popper>
                 </div>
-
-                <BookCard1></BookCard1>
-                <Pagination1></Pagination1>
+                <BookCard1 book_Details={currentPosts} loading={loading} ></BookCard1>
+                <Pagination1 postsPerPage={postsPerPage}
+                    totalPosts={posts.length}
+                    paginate={paginate}/>
                 <div>
                     <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "black", height: "36px" }}>
                         <Toolbar className="toolbar" >

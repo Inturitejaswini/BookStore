@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Pagination from '@material-ui/lab/Pagination';
- export class Pagination1 extends Component {  
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentPage:1
-        }
-    }
-    changeCurrentPage(numPage){
-        this.setState({currentPage:numPage})
-    }
-render(){
-        return (
-            <div className="pagination">
-            <Pagination count={10}
-             color="primary" 
-             className="paginationnumber"
-              />
-        </div>
-        );
-    };
-}
-export default withRouter(Pagination1)
+
+const Pagination1 = ({ postsPerPage, totalPosts, paginate }) => {
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <div>
+      <ul className='pagination'>
+        {pageNumbers.map(number => (
+          <li key={number} className='page-item'>
+            <a onClick={() => paginate(number)} href='!#' className='page-link'>
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default withRouter(Pagination1);

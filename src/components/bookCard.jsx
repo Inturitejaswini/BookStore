@@ -8,7 +8,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-               borderRadius:"0px"
+                borderRadius: "0px"
             }
         },
     },
@@ -16,15 +16,18 @@ const theme = createMuiTheme({
 
 
 class BookCard1 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            book_Details:[]
+        this.state = {
+            book_Details: []
         }
+    }
+    handleChange() {
+        // window.open('/addToCard')
     }
     render() {
         return (
-            <div className="cardstyle">            
+            <div className="cardstyle">
                 {data.book_Details.map((books, i) => {
                     return (
                         <div key={i} className="card-div">
@@ -51,13 +54,22 @@ class BookCard1 extends Component {
                                             })}
                                         </div>
                                     </div>
-                                    <div className="form-group">
-                                        <Button type="tagbtn" id="tag">
-                                            <div className="texttag"> ADD TO BAG</div>
-                                        </Button>
-                                        <Button className="whishlistbtn">
-                                            <text className="whishtext">WHISHLIST</text>
-                                        </Button>
+                                    <div >
+                                        {!this.state.open ? (
+                                            <div className="form-group">
+                                            <Button type="tagbtn" id="tag" onClick={() => this.handleChange()}>
+                                                <div className="texttag"> ADD TO BAG</div>
+                                            </Button>
+                                             <Button className="whishlistbtn">
+                                             <text className="whishtext">WHISHLIST</text>
+                                            </Button>
+                                            </div>
+                                        ):(
+                                            <Button onClick={() => this.handleChange()}>
+                                                teju
+                                            </Button>
+
+                                        )}
                                     </div>
                                 </Card>
                             </MuiThemeProvider>

@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
 import { Paper} from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import image from '../assets/book.png'
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
 import { AppBar, InputBase } from '@material-ui/core'
@@ -27,6 +28,11 @@ const theme = createMuiTheme({
             root: {
                 padding: "6PX",
                 fontSize: "0.5em"
+            }
+        },
+        MuiToolbar: {
+            root: {
+                marginTop:"-8px"
             }
         },
         MuiOutlinedInput: {
@@ -72,7 +78,6 @@ export class Dashboard extends Component {
         }
     }
     handleChage(event){
-        console.log("poper paper",event)
     this.setState({
         anchorEl: (this.state.anchorEl ? null : event.currentTarget)
     })
@@ -85,10 +90,11 @@ export class Dashboard extends Component {
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "Brown", marginTop: "-7px" }}>
+                    <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "Brown", marginTop: "-7px" ,height:"48px"}}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
-                                <MenuBookIcon />
+                                {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
+                                <MenuBookIcon id="bookicon1"/>
                                 <Typography variant="title"
                                     color="textPrimary"
                                     title="bookstore">
@@ -98,18 +104,19 @@ export class Dashboard extends Component {
                             <div className="search_box">
                                 <InputBase className="input-text"
                                     type="searchIcon"
-                                    placeholder="search.." />
+                                    placeholder="Search.." />
                                 <SearchSharpIcon className="icon"/>
                             </div>
                             <div className="carttext">
                                 <div><h5 style={{ cursor: "pointer" }}>Cart</h5></div>
-                                <div><AddShoppingCartSharpIcon /> </div>
+                                <div><AddShoppingCartSharpIcon id="shopingcart"/> </div>
                             </div>
                         </Toolbar>
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
-                    <Button id="btn" aria-describedby={id} onClick={this.handleChage()} >
+                    <div className="booktext1">Books(15items)</div>
+                    <Button id="btn" aria-describedby={id} onClick="handleChage(); return false;" >
                         <div className="sorttext">sort by relevence</div>
                     </Button>
                     <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>

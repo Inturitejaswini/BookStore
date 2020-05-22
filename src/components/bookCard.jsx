@@ -24,15 +24,13 @@ class BookCard1 extends Component {
         }
     }
     render() {
-        let count=0;
         return (
             <div className="cardstyle">            
                 {data.book_Details.map((books, i) => {
-                    count++;
                     return (
                         <div key={i} className="card-div">
                             <MuiThemeProvider theme={theme}>
-                                <Card className="bookcard" style={{ backgroundColor: "aliceblue", marginTop: "16px" }}>
+                                <Card className="bookcard" style={{ backgroundColor: "#eeeeef", marginTop: "16px" }}>
                                     <div className="bookdetails">
                                         <div>
                                             <a href={books.url}>

@@ -19,7 +19,7 @@ class BookCard1 extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            book_Details: []
+            open: false
         }
     }
     handleChange() {

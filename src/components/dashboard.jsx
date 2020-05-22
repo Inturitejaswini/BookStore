@@ -78,8 +78,9 @@ export class Dashboard extends Component {
         }
     }
     handleChage(event){
+        console.log("log".event)
     this.setState({
-        anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+        // anchorEl: (this.state.anchorEl ? null : event.currentTarget)
     })
 }
 
@@ -118,7 +119,7 @@ export class Dashboard extends Component {
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">Books(15items)</div>
-                    <Button id="btn" aria-describedby={id} onClick="handleChage(); return false;" >
+                    <Button id="btn" aria-describedby={id} onClick={()=>this.handleChage()} >
                         <div className="sorttext">sort by relevence</div>
                     </Button>
                     <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>

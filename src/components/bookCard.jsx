@@ -53,7 +53,7 @@ class BookCard1 extends Component {
                                     </div>
                                     <div className="form-group">
                                         <Button type="tagbtn" id="tag">
-                                            <text className="texttag"> ADD TO BAG</text>
+                                            <div className="texttag"> ADD TO BAG</div>
                                         </Button>
                                         <Button className="whishlistbtn">
                                             <text className="whishtext">WHISHLIST</text>

@@ -90,7 +90,9 @@ export class Dashboard extends Component {
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "Brown", marginTop: "-7px" ,height:"48px"}}>
+                    <AppBar position="sticky" title="My App" className="appbar-class" 
+                    style={{ backgroundColor: "Brown",
+                     marginTop: "-7px" ,height:"48px"}}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}

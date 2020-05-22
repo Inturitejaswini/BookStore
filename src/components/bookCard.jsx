@@ -6,10 +6,9 @@ import { createMuiTheme, Divider, Button } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
 const theme = createMuiTheme({
     overrides: {
-        MuiIconButton: {
+        MuiButton: {
             root: {
-                padding: "6PX",
-                fontSize: "0.5em"
+               borderRadius:"0px"
             }
         },
     },

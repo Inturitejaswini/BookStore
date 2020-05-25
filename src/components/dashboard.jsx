@@ -8,14 +8,15 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
-import { Paper} from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import image from '../assets/book.png'
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
 import { AppBar, InputBase } from '@material-ui/core'
-import Pagination1 from '../components/pagination'
-import BookCard1 from './bookCard';
+import Pagination from './pagination'
+import BookCard from './bookCard';
+
 const theme = createMuiTheme({
     overrides: {
         MuiAppBar: {
@@ -32,7 +33,7 @@ const theme = createMuiTheme({
         },
         MuiToolbar: {
             root: {
-                marginTop:"-8px"
+                marginTop: "-8px"
             }
         },
         MuiOutlinedInput: {
@@ -74,29 +75,40 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            currentPage:1
+            bookDetails:book_Details.i,
+            currentPage: 1,
+            postsPerPage: 3,
         }
+        this.paginate = this.paginate.bind(this)
     }
-    handleChage(event){
-    this.setState({
-        anchorEl: (this.state.anchorEl ? null : event.currentTarget)
-    })
-}
+    paginate(pageNumber) {
+        console.log("pages",pageNumber)
+        this.setState({
+            currentPage: pageNumber
+        })
+    }
+    handleChage(event) {
+        this.setState({
+            anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+        })
+    }
 
     render() {
-        const { anchorEl } = this.state;
-        const open = Boolean(anchorEl);
-        const id = open ? 'simple-popper' : undefined;  
+        const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        const currentPosts = this.state.book_Details.slice(indexOfFirstPost, indexOfLastPost);
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" title="My App" className="appbar-class" 
-                    style={{ backgroundColor: "Brown",
-                     marginTop: "-7px" ,height:"48px"}}>
+                    <AppBar position="sticky" title="My App" className="appbar-class"
+                        style={{
+                            backgroundColor: "Brown",
+                            marginTop: "-7px", height: "48px"
+                        }}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
-                                <MenuBookIcon id="bookicon1"/>
+                                <MenuBookIcon id="bookicon1" />
                                 <Typography variant="title"
                                     color="textPrimary"
                                     title="bookstore">
@@ -107,31 +119,35 @@ export class Dashboard extends Component {
                                 <InputBase className="input-text"
                                     type="searchIcon"
                                     placeholder="Search.." />
-                                <SearchSharpIcon className="icon"/>
+                                <SearchSharpIcon className="icon" />
                             </div>
                             <div className="carttext">
                                 <div><h5 style={{ cursor: "pointer" }}>Cart</h5></div>
-                                <div><AddShoppingCartSharpIcon id="shopingcart"/> </div>
+                                <div><AddShoppingCartSharpIcon id="shopingcart" /> </div>
                             </div>
                         </Toolbar>
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">Books(15items)</div>
-                    <Button id="btn" aria-describedby={id} onClick="handleChage(); return false;" >
+                    <Button id="btn" aria-describedby={id} onClick={() => this.handleChage()}>
                         <div className="sorttext">sort by relevence</div>
                     </Button>
-                    <Popper id={id} open={open} anchorEl={anchorEl} style={{zIndex:"9999"}}>
-                    <Paper className="sort-paper">
-                        <Button>
-                            hai
+                    <Popper id={id} open={open} anchorEl={anchorEl} style={{ zIndex: "9999" }}>
+                        <Paper className="sort-paper">
+                            <Button>
+                                hai
                         </Button>
-                    </Paper>
-                </Popper>
+                        </Paper>
+                    </Popper>
                 </div>
 
-                <BookCard1></BookCard1>
-                <Pagination1></Pagination1>
+                <BookCard book_Details={this.state.filterArray?this.state.filterArray:currentPosts}></BookCard>
+                <Pagination
+                 postsPerPage={this.state.postsPerPage}
+                 totalPosts={this.state.book_Details.length}
+                 pagination={this.paginate}
+                ></Pagination>
                 <div>
                     <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "black", height: "36px" }}>
                         <Toolbar className="toolbar" >

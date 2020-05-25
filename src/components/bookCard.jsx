@@ -15,7 +15,7 @@ const theme = createMuiTheme({
 })
 
 
-class BookCard1 extends Component {
+class BookCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,7 +23,7 @@ class BookCard1 extends Component {
         }
     }
     handleChange() {
-        // window.open('/addToCard')
+        window.open('/addToCard')
     }
     render() {
         return (
@@ -54,22 +54,15 @@ class BookCard1 extends Component {
                                             })}
                                         </div>
                                     </div>
-                                    <div >
-                                        {!this.state.open ? (
+                                    <div > 
                                             <div className="form-group">
                                             <Button type="tagbtn" id="tag" onClick={() => this.handleChange()}>
                                                 <div className="texttag"> ADD TO BAG</div>
                                             </Button>
-                                             <Button className="whishlistbtn">
+                                             <Button className="whishlistbtn" >
                                              <text className="whishtext">WHISHLIST</text>
                                             </Button>
                                             </div>
-                                        ):(
-                                            <Button onClick={() => this.handleChange()}>
-                                                teju
-                                            </Button>
-
-                                        )}
                                     </div>
                                 </Card>
                             </MuiThemeProvider>
@@ -81,4 +74,4 @@ class BookCard1 extends Component {
         );
     }
 }
-export default BookCard1;
+export default BookCard;

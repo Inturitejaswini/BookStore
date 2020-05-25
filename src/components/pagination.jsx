@@ -1,26 +1,34 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
 
-const Pagination1 = ({ postsPerPage, totalPosts, paginate }) => {
-  const pageNumbers = [];
+class Pagination extends Component {
+constructor(props){
+  super(props);
+  this.paginate=this.paginate.bind(this);
+}
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
+paginate(pageNumber){
+  this.props.pagination(pageNumber)
+}
+  render() {
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.props.totalPosts / this.props.postsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+    return (
+      <nav>
+        <ul className='pagination'>
+          {pageNumbers.map(number => (
+            <li key={number} className='page-item'>
+              <a onClick={() => paginate(number)} className='page-link'>
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
   }
+}
 
-  return (
-    <div>
-      <ul className='pagination'>
-        {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href='!#' className='page-link'>
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default withRouter(Pagination1);
+export default Pagination;

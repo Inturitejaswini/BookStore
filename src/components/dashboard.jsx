@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import data from "../assets/bookDetails.json";
 import image from '../assets/book.png'
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
@@ -75,7 +76,7 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            bookDetails:book_Details.i,
+            bookDetails:data.book_Details,
             currentPage: 1,
             postsPerPage: 3,
         }
@@ -87,16 +88,16 @@ export class Dashboard extends Component {
             currentPage: pageNumber
         })
     }
-    handleChage(event) {
-        this.setState({
-            anchorEl: (this.state.anchorEl ? null : event.currentTarget)
-        })
-    }
+    // handleChage(event) {
+    //     this.setState({
+    //         anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+    //     })
+    // }
 
     render() {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
-        const currentPosts = this.state.book_Details.slice(indexOfFirstPost, indexOfLastPost);
+        const currentPosts = this.state.book_Details.slice(indexOfFirstPost,indexOfLastPost);
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
@@ -130,22 +131,14 @@ export class Dashboard extends Component {
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">Books(15items)</div>
-                    <Button id="btn" aria-describedby={id} onClick={() => this.handleChage()}>
+                    <Button id="btn" >
                         <div className="sorttext">sort by relevence</div>
                     </Button>
-                    <Popper id={id} open={open} anchorEl={anchorEl} style={{ zIndex: "9999" }}>
-                        <Paper className="sort-paper">
-                            <Button>
-                                hai
-                        </Button>
-                        </Paper>
-                    </Popper>
                 </div>
-
-                <BookCard book_Details={this.state.filterArray?this.state.filterArray:currentPosts}></BookCard>
+                <BookCard book_Details={this.state.filterArray ? this.state.filterArray:currentPosts}></BookCard>
                 <Pagination
                  postsPerPage={this.state.postsPerPage}
-                 totalPosts={this.state.book_Details.length}
+                 totalPosts={bookDetails.length}
                  pagination={this.paginate}
                 ></Pagination>
                 <div>

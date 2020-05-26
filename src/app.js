@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
-import Dashboard from './components/dashboard'
+import Dashboard from './components/dashboard/dashboard'
 import BookCard from './components/bookCard'
 import  AddToCard from './components/addToCard';
 import Pagination from './components/pagination'

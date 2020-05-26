@@ -10,13 +10,13 @@ import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-// import data from "../assets/bookDetails.json";
-import image from '../assets/book.png'
+import data from "../../assets/bookDetails.json";
+// import image from '../assets/book.png'
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
 import { AppBar, InputBase } from '@material-ui/core'
-import Pagination from './pagination'
-import BookCard from './bookCard';
+import Pagination from '../pagination'
+import BookCard from '../bookCard'
 
 const theme = createMuiTheme({
     overrides: {
@@ -76,17 +76,18 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            book_Details:"",
+            book_Details:data.book_Details,
             currentPage: 1,
-            postsPerPage: 3,
+            postsPerPage: 4,
         }
         this.paginate = this.paginate.bind(this)
     }
     paginate(pageNumber) {
-        console.log("pages",pageNumber)
+        console.log("pagenumber",pageNumber)
         this.setState({
             currentPage: pageNumber
         })
+        console.log("currentpage",this.state.currentPage)
     }
     // handleChage(event) {
     //     this.setState({
@@ -136,11 +137,11 @@ export class Dashboard extends Component {
                     </Button>
                 </div>
                 <BookCard 
-                book_Details={this.state.filterArray?this.state.filterArray:currentPosts}
+                book_Details={currentPosts}
                 ></BookCard>
                 <Pagination
                  postsPerPage={this.state.postsPerPage}
-                 totalPosts={book_Details.length}
+                 totalPosts={this.state.book_Details.length}
                  pagination={this.paginate}
                 ></Pagination>
                 <div>

@@ -4,11 +4,10 @@ import { Button } from '@material-ui/core';
 class Pagination extends Component {
 constructor(props){
   super(props);
-  this.paginate=this.paginate.bind(this);
 }
 
 paginate(pageNumber){
-  this.props.paginateNumber(pageNumber)
+  this.props.pagination(pageNumber)
 }
   render() {
     const pageNumbers = [];
@@ -20,7 +19,7 @@ paginate(pageNumber){
         <ul className='pagination'>
           {pageNumbers.map(number => (
             <li key={number} className='page-item'>
-              <a onClick={() => paginate(number)} className='page-link'>
+              <a onClick={() => this.paginate(number)} className='page-link'>
                 {number}
               </a>
             </li>

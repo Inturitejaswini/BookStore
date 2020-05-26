@@ -78,22 +78,17 @@ export class Dashboard extends Component {
             open: false,
             book_Details:data.book_Details,
             currentPage: 1,
-            postsPerPage: 4,
+            postsPerPage: 3,
         }
         this.paginate = this.paginate.bind(this)
     }
     paginate(pageNumber) {
         console.log("pagenumber",pageNumber)
         this.setState({
-            currentPage: pageNumber
+            currentPage:pageNumber
         })
         console.log("currentpage",this.state.currentPage)
     }
-    // handleChage(event) {
-    //     this.setState({
-    //         anchorEl: (this.state.anchorEl ? null : event.currentTarget)
-    //     })
-    // }
 
     render() {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
@@ -105,8 +100,7 @@ export class Dashboard extends Component {
                     <AppBar position="sticky" title="My App" className="appbar-class"
                         style={{
                             backgroundColor: "Brown",
-                            marginTop: "-7px", height: "48px"
-                        }}>
+                            marginTop: "-7px", height: "48px"}}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
@@ -145,7 +139,8 @@ export class Dashboard extends Component {
                  pagination={this.paginate}
                 ></Pagination>
                 <div>
-                    <AppBar position="sticky" title="My App" className="appbar-class" style={{ backgroundColor: "black", height: "36px" }}>
+                    <AppBar position="sticky" title="My App" className="appbar-class" 
+                    style={{ backgroundColor: "black", height: "36px" }}>
                         <Toolbar className="toolbar" >
                             <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                         </Toolbar>

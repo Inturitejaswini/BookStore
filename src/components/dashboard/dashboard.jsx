@@ -78,7 +78,7 @@ export class Dashboard extends Component {
             open: false,
             book_Details:data.book_Details,
             currentPage: 1,
-            postsPerPage: 3,
+            postsPerPage: 4,
         }
         this.paginate = this.paginate.bind(this)
     }

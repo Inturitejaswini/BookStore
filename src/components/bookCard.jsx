@@ -19,61 +19,75 @@ class BookCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            open: false
+            addtocart: false
         }
     }
-    handleChange() {
-        window.open('/addToCard')
+    addtocart() {
+        // window.open('/addToCard')
     }
     render() {
         return (
             <div className="cardstyle">
                 {
-                this.props.book_Details.map((books, i) => {
-                    return (
-                        <div key={i} className="card-div">
-                            <MuiThemeProvider theme={theme}>
-                                <Card className="bookcard" style={{ backgroundColor: "#eeeeef",
-                                 marginTop: "16px" ,borderRadius:"0px",width: "248px", height:"279px",marginLeft: "20px"}}>
-                                    <div className="bookdetails">
-                                        <div>
-                                            <a href={books.url}>
-                                                <img src={books.logo} className="image" />
-                                            </a>
-                                        </div>
-                                        < div><Divider type='horizontal' /></div>
-                                        <div style={{ backgroundColor: "white" }} className="carddown">
-                                            {books.roles.map(function (role, i) {
-                                                return <div key={i} id="cardtext">
-                                                    <h5>{role.title}</h5>
-                                                    <div className="authorname">
-                                                        <span>{role.authorname}</span>
-                                                    </div>
-                                                    <div className="price">
-                                                        <p>{role.price}</p>
-                                                    </div>
-                                                </div>
-                                            })}
-                                        </div>
-                                    </div>
-                                    <div > 
-                                            <div className="form-group">
-                                            <Button type="tagbtn" id="tag" onClick={() => this.handleChange()}>
-                                                <div className="texttag"> ADD TO BAG</div>
-                                            </Button>
-                                             <Button className="whishlistbtn" >
-                                             <text className="whishtext">WHISHLIST</text>
-                                            </Button>
+                    this.props.book_Details.map((books, i) => {
+                        return (
+                            <div key={i} className="card-div">
+                                <MuiThemeProvider theme={theme}>
+                                    <Card className="bookcard" style={{
+                                        backgroundColor: "#eeeeef",
+                                        marginTop: "16px", borderRadius: "0px", width: "248px", height: "279px", marginLeft: "20px"
+                                    }}>
+                                        <div className="bookdetails">
+                                            <div>
+                                                <a href={books.url}>
+                                                    <img src={books.logo} className="image" />
+                                                </a>
                                             </div>
-                                    </div>
-                                </Card>
-                            </MuiThemeProvider>
-                        </div>
-                    );
-                })
+                                            < div><Divider type='horizontal' /></div>
+                                            <div style={{ backgroundColor: "white" }} className="carddown">
+                                                {books.roles.map(function (role, i) {
+                                                    return <div key={i} id="cardtext">
+                                                        <h5>{role.title}</h5>
+                                                        <div className="authorname">
+                                                            <span>{role.authorname}</span>
+                                                        </div>
+                                                        <div className="price">
+                                                            <p>{role.price}</p>
+                                                        </div>
+                                                    </div>
+                                                })}
+                                            </div>
+                                        </div>
+                                        {this.state.addtocart ? (
+                                            <div className="assaa">addtobag</div>
+                                        ) : (
+                                                <div className="form-group">
+                                                    <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
+                                                        <div className="texttag"> ADD TO BAG</div>
+                                                    </Button>
+                                                    <Button className="whishlistbtn" >
+                                                        <text className="whishtext">WHISHLIST</text>
+                                                    </Button>
+                                                </div>
+                                            )}
+                                    </Card>
+                                </MuiThemeProvider>
+                            </div>
+                        );
+                    })
                 }
             </div>
         );
     }
 }
 export default BookCard;
+
+
+// {this.state.addtocart ? (
+//     <div className="Addddddiv">Add to bag</div>
+// ) : (
+//         <div className="minidivb">
+//             <div className="Adddiv" onClick={() => this.addtocart()}>Add to bag</div>
+//             <div className="whisilistdiv">wishilst</div>
+//         </div>
+//     )}

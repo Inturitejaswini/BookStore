@@ -24,6 +24,9 @@ class BookCard extends Component {
     }
     addtocart() {
         // window.open('/addToCard')
+        this.setState({
+            addtocart:false,
+        })
     }
     render() {
         return (
@@ -35,8 +38,7 @@ class BookCard extends Component {
                                 <MuiThemeProvider theme={theme}>
                                     <Card className="bookcard" style={{
                                         backgroundColor: "#eeeeef",
-                                        marginTop: "16px", borderRadius: "0px", width: "248px", height: "279px", marginLeft: "20px"
-                                    }}>
+                                        marginTop: "16px", borderRadius: "0px", width: "248px", height: "279px", marginLeft: "20px"}}>
                                         <div className="bookdetails">
                                             <div>
                                                 <a href={books.url}>
@@ -59,7 +61,7 @@ class BookCard extends Component {
                                             </div>
                                         </div>
                                         {this.state.addtocart ? (
-                                            <div className="assaa">addtobag</div>
+                                           <div className="assaa">addtobag</div>
                                         ) : (
                                                 <div className="form-group">
                                                     <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
@@ -69,7 +71,7 @@ class BookCard extends Component {
                                                         <text className="whishtext">WHISHLIST</text>
                                                     </Button>
                                                 </div>
-                                            )}
+                                             )}
                                     </Card>
                                 </MuiThemeProvider>
                             </div>

@@ -15,17 +15,17 @@ paginate(pageNumber){
       pageNumbers.push(i);
     }
     return (
-      <nav>
+      <div>
         <ul className='pagination'>
           {pageNumbers.map(number => (
             <li key={number} className='page-item'>
-              <a onClick={() => this.paginate(number)} className='page-link'>
+              <a onClick={() => this.paginate(number)}  className='page-link'>
                 {number}
               </a>
             </li>
           ))}
         </ul>
-      </nav>
+      </div>
     );
   }
 }

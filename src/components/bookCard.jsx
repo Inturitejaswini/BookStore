@@ -28,7 +28,8 @@ class BookCard extends Component {
     render() {
         return (
             <div className="cardstyle">
-                {data.book_Details.map((books, i) => {
+                {
+                this.props.book_Details.map((books, i) => {
                     return (
                         <div key={i} className="card-div">
                             <MuiThemeProvider theme={theme}>

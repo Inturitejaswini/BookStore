@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import data from "../assets/bookDetails.json";
+// import data from "../assets/bookDetails.json";
 import image from '../assets/book.png'
 import './dashboard.less'
 import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
@@ -76,7 +76,7 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            bookDetails:data.book_Details,
+            book_Details:"",
             currentPage: 1,
             postsPerPage: 3,
         }
@@ -97,7 +97,7 @@ export class Dashboard extends Component {
     render() {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
-        const currentPosts = this.state.book_Details.slice(indexOfFirstPost,indexOfLastPost);
+        const currentPosts = this.state.book_Details.slice(indexOfFirstPost, indexOfLastPost);
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
@@ -135,10 +135,12 @@ export class Dashboard extends Component {
                         <div className="sorttext">sort by relevence</div>
                     </Button>
                 </div>
-                <BookCard book_Details={this.state.filterArray ? this.state.filterArray:currentPosts}></BookCard>
+                <BookCard 
+                book_Details={this.state.filterArray?this.state.filterArray:currentPosts}
+                ></BookCard>
                 <Pagination
                  postsPerPage={this.state.postsPerPage}
-                 totalPosts={bookDetails.length}
+                 totalPosts={book_Details.length}
                  pagination={this.paginate}
                 ></Pagination>
                 <div>

@@ -8,7 +8,7 @@ constructor(props){
 }
 
 paginate(pageNumber){
-  this.props.pagination(pageNumber)
+  this.props.paginateNumber(pageNumber)
 }
   render() {
     const pageNumbers = [];

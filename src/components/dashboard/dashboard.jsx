@@ -101,8 +101,7 @@ export class Dashboard extends Component {
                     <AppBar position="sticky" title="My App" className="appbar-class"
                         style={{
                             backgroundColor: "Brown",
-                            marginTop: "-7px", height: "48px",width:"103%",
-                            marginLeft: "-30px"}}>
+                            width:"103%"}}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
@@ -141,8 +140,7 @@ export class Dashboard extends Component {
                 ></Pagination>
                 <div>
                     <AppBar position="sticky" title="My App" id="bottomappbar" 
-                    style={{ backgroundColor: "black", height: "48px" ,marginTop: "102px",
-                    width: "103%", marginLeft: "-29px"}}>
+                    style={{ backgroundColor: "black"}}>
                         <Toolbar className="toolbar" >
                             <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                         </Toolbar>

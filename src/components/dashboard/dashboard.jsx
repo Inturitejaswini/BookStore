@@ -76,18 +76,18 @@ export class Dashboard extends Component {
             open: false,
             anchorEl: null,
             open: false,
-            book_Details:data.book_Details,
+            book_Details: data.book_Details,
             currentPage: 1,
             postsPerPage: 4,
         }
         this.paginate = this.paginate.bind(this)
     }
     paginate(pageNumber) {
-        console.log("pagenumber",pageNumber)
+        console.log("pagenumber", pageNumber)
         this.setState({
-            currentPage:pageNumber
+            currentPage: pageNumber
         })
-        console.log("currentpage",this.state.currentPage)
+        console.log("currentpage", this.state.currentPage)
     }
 
     render() {
@@ -101,21 +101,16 @@ export class Dashboard extends Component {
                     <AppBar position="sticky" title="My App" className="appbar-class"
                         style={{
                             backgroundColor: "Brown",
-                            width:"103%"}}>
+                            width: "103%"}}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
-                                {/* <img src={image} style={{height:"51px",backgroundColor:"Brown"}}></img> */}
                                 <MenuBookIcon id="bookicon1" />
-                                <Typography variant="title"
-                                    color="textPrimary"
-                                    title="bookstore">
+                                <Typography variant="title" color="textPrimary" title="bookstore">
                                     <div className="bookstoretext"><h5 style={{ cursor: "pointer" }}>BookStore</h5></div>
                                 </Typography>
                             </div>
                             <div className="search_box">
-                                <InputBase className="input-text"
-                                    type="searchIcon"
-                                    placeholder="Search.." />
+                                <InputBase className="input-text" type="searchIcon" placeholder="Search.." />
                                 <SearchSharpIcon className="icon" />
                             </div>
                             <div className="carttext">
@@ -131,16 +126,16 @@ export class Dashboard extends Component {
                         <div className="sorttext">sort by relevence</div>
                     </Button>
                 </div>
-                <BookCard 
-                book_Details={this.state.filterArray ? this.state.filterArray:currentPosts}></BookCard>
+                <BookCard
+                    book_Details={this.state.filterArray ? this.state.filterArray : currentPosts}></BookCard>
                 <Pagination
-                 postsPerPage={this.state.postsPerPage}
-                 totalPosts={this.state.book_Details.length}
-                 pagination={this.paginate}
+                    postsPerPage={this.state.postsPerPage}
+                    totalPosts={this.state.book_Details.length}
+                    pagination={this.paginate}
                 ></Pagination>
                 <div>
-                    <AppBar position="sticky" title="My App" id="bottomappbar" 
-                    style={{ backgroundColor: "black"}}>
+                    <AppBar position="sticky" title="My App" id="bottomappbar"
+                        style={{ backgroundColor: "black" }}>
                         <Toolbar className="toolbar" >
                             <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                         </Toolbar>

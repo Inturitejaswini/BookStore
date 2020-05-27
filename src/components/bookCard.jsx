@@ -19,14 +19,15 @@ class BookCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            addtocart: false
+            open: false
         }
     }
     addtocart() {
         // window.open('/addToCard')
         this.setState({
-            addtocart:false,
-        })
+            open:!this.state.open
+        });
+        console.log("addtocart button",this.state.open)
     }
     render() {
         return (
@@ -60,17 +61,21 @@ class BookCard extends Component {
                                                 })}
                                             </div>
                                         </div>
-                                        {this.state.addtocart ? (
-                                           <div className="assaa">addtobag</div>
+                                        { ! this.state.open ? (
+                                          <div className="form-group">
+                                          <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
+                                              <div className="texttag"> ADD TO BAG</div>
+                                          </Button>
+                                          <Button className="whishlistbtn" >
+                                              <text className="whishtext">WHISHLIST</text>
+                                          </Button>
+                                      </div>
                                         ) : (
-                                                <div className="form-group">
-                                                    <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
-                                                        <div className="texttag"> ADD TO BAG</div>
-                                                    </Button>
-                                                    <Button className="whishlistbtn" >
-                                                        <text className="whishtext">WHISHLIST</text>
-                                                    </Button>
-                                                </div>
+                                                 <div className="assaa">
+                                                 <Button onClick={() => this.addtocart()} id="addbutton">
+                                                     <div className="added">added to bag</div> 
+                                                      </Button>
+                                                  </div>
                                              )}
                                     </Card>
                                 </MuiThemeProvider>

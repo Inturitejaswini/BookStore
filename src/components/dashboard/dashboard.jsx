@@ -103,27 +103,25 @@ export class Dashboard extends Component {
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" title="My App" className="appbar-class"
+                    <AppBar position="sticky"  id="appbar-class"
                         style={{
-                            backgroundColor: "Brown",
-                            width: "103%"
-                        }}>
-                        <Toolbar className="toolbar" >
+                            backgroundColor: "Brown"}}>
+                        {/* <Toolbar className="toolbar" > */}
+                        <div id="App-icons">
                             <div className="bookstore">
                                 <MenuBookIcon id="bookicon1" />
-                                <Typography variant="title" color="textPrimary" title="bookstore">
-                                    <div className="bookstoretext"><h5 style={{ cursor: "pointer" }}>BookStore</h5></div>
-                                </Typography>
+                                 <h5 style={{ cursor: "pointer" }} className="bookstoretext">BookStore</h5>
                             </div>
                             <div className="search_box">
                                 <InputBase className="input-text" type="searchIcon" placeholder="Search.." />
                                 <SearchSharpIcon className="icon" />
                             </div>
                             <div className="carttext">
-                                <div><h5 style={{ cursor: "pointer" }}>Cart</h5></div>
-                                <div><AddShoppingCartSharpIcon id="shopingcart" /> </div>
+                                <h5 style={{ cursor: "pointer" }}>Cart</h5>
+                                <AddShoppingCartSharpIcon id="shopingcart" />
                             </div>
-                        </Toolbar>
+                            </div> 
+                        {/* </Toolbar> */}
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
@@ -143,11 +141,11 @@ export class Dashboard extends Component {
                     pagination={this.paginate}
                 ></Pagination>
                 <div>
-                    <AppBar position="sticky" title="My App" id="bottomappbar"
+                    <AppBar position="sticky" id="bottomappbar"
                         style={{ backgroundColor: "black" }}>
-                        <Toolbar className="toolbar" >
+                        {/* <Toolbar className="toolbar" > */}
                             <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
-                        </Toolbar>
+                        {/* </Toolbar> */}
                     </AppBar>
                 </div>
             </div >

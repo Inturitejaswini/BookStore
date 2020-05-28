@@ -20,16 +20,16 @@ class BookCard extends Component {
         super(props)
         this.state = {
             open: false,
-            book_Details:[]
+            book_Details: []
         }
     }
     addtocart(id) {
 
         // window.open('/addToCard')
         this.setState({
-            open:!this.state.open
+            open: !this.state.open
         });
-        console.log("addtocart button",this.state.open)
+        console.log("addtocart button", this.state.open)
     }
     render() {
         return (
@@ -40,7 +40,9 @@ class BookCard extends Component {
                             <div key={id} className="card-div">
                                 <MuiThemeProvider theme={theme}>
                                     <Card className="bookcard" style={{
-                                        backgroundColor: "#eeeeef"}}>
+                                        boxShadow: "0px 0px 0px 1px lightgrey",
+                                        backgroundColor: "#eeeeef"
+                                    }}>
                                         <div className="bookdetails">
                                             <div>
                                                 <a href={books.url}>
@@ -62,22 +64,22 @@ class BookCard extends Component {
                                                 })}
                                             </div>
                                         </div>
-                                        { ! this.state.open ? (
-                                          <div className="form-group">
-                                          <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
-                                              <div className="texttag"> ADD TO BAG</div>
-                                          </Button>
-                                          <Button className="whishlistbtn" >
-                                              <text className="whishtext">WHISHLIST</text>
-                                          </Button>
-                                      </div>
+                                        {!this.state.open ? (
+                                            <div className="form-group">
+                                                <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
+                                                    <div className="texttag"> ADD TO BAG</div>
+                                                </Button>
+                                                <Button className="whishlistbtn" >
+                                                    <text className="whishtext">WHISHLIST</text>
+                                                </Button>
+                                            </div>
                                         ) : (
-                                                 <div className="assaa">
-                                                 <Button onClick={() => this.addtocart()} id="addbutton">
-                                                     <div className="added">added to bag</div> 
-                                                      </Button>
-                                                  </div>
-                                             )}
+                                                <div className="assaa">
+                                                    <Button onClick={() => this.addtocart()} id="addbutton">
+                                                        <div className="added">added to bag</div>
+                                                    </Button>
+                                                </div>
+                                            )}
                                     </Card>
                                 </MuiThemeProvider>
                             </div>

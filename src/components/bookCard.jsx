@@ -19,10 +19,12 @@ class BookCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            open: false
+            open: false,
+            book_Details:[]
         }
     }
-    addtocart() {
+    addtocart(id) {
+
         // window.open('/addToCard')
         this.setState({
             open:!this.state.open
@@ -33,9 +35,9 @@ class BookCard extends Component {
         return (
             <div className="cardstyle">
                 {
-                    this.props.book_Details.map((books, i) => {
+                    this.props.book_Details.map((books, id) => {
                         return (
-                            <div key={i} className="card-div">
+                            <div key={id} className="card-div">
                                 <MuiThemeProvider theme={theme}>
                                     <Card className="bookcard" style={{
                                         backgroundColor: "#eeeeef"}}>
@@ -47,8 +49,8 @@ class BookCard extends Component {
                                             </div>
                                             < div><Divider type='horizontal' /></div>
                                             <div style={{ backgroundColor: "white" }} className="carddown">
-                                                {books.roles.map(function (role, i) {
-                                                    return <div key={i} id="cardtext">
+                                                {books.roles.map(function (role, id) {
+                                                    return <div key={id} id="cardtext">
                                                         <h5>{role.title}</h5>
                                                         <div className="authorname">
                                                             <span>{role.authorname}</span>

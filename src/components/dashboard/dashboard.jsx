@@ -34,7 +34,12 @@ const theme = createMuiTheme({
         },
         MuiToolbar: {
             root: {
-                marginTop: "-8px"
+                marginTop: "-8px",
+                display: "flex",
+                alignitems: "center",
+                marginright: "139px",
+                margin: "auto",
+                marginblockstart: "-8px"
             }
         },
         MuiOutlinedInput: {
@@ -78,7 +83,7 @@ export class Dashboard extends Component {
             open: false,
             book_Details: data.book_Details,
             currentPage: 1,
-            postsPerPage: 4,
+            postsPerPage: 8,
         }
         this.paginate = this.paginate.bind(this)
     }
@@ -101,7 +106,8 @@ export class Dashboard extends Component {
                     <AppBar position="sticky" title="My App" className="appbar-class"
                         style={{
                             backgroundColor: "Brown",
-                            width: "103%"}}>
+                            width: "103%"
+                        }}>
                         <Toolbar className="toolbar" >
                             <div className="bookstore">
                                 <MenuBookIcon id="bookicon1" />
@@ -121,7 +127,10 @@ export class Dashboard extends Component {
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
-                    <div className="booktext1">Books(15items)</div>
+                    <div className="booktext1">
+                        <div className="class"><span>Books</span></div>
+                        <div className="Items"><span>(15items)</span></div>
+                        </div>
                     <Button id="btn" >
                         <div className="sorttext">sort by relevence</div>
                     </Button>

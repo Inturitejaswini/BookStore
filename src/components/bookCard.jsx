@@ -4,6 +4,7 @@ import data from "../assets/bookDetails.json";
 import Card from '@material-ui/core/Card';
 import { createMuiTheme, Divider, Button } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
+import AddToCard from './addToCart';
 const theme = createMuiTheme({
     overrides: {
         MuiButton: {
@@ -64,22 +65,7 @@ class BookCard extends Component {
                                                 })}
                                             </div>
                                         </div>
-                                        {!this.state.open ? (
-                                            <div className="form-group">
-                                                <Button type="tagbtn" id="tag" onClick={() => this.addtocart()}>
-                                                    <div className="texttag"> ADD TO BAG</div>
-                                                </Button>
-                                                <Button className="whishlistbtn" >
-                                                    <text className="whishtext">WHISHLIST</text>
-                                                </Button>
-                                            </div>
-                                        ) : (
-                                                <div className="assaa">
-                                                    <Button onClick={() => this.addtocart()} id="addbutton">
-                                                        <div className="added">added to bag</div>
-                                                    </Button>
-                                                </div>
-                                            )}
+                                        <AddToCard></AddToCard>
                                     </Card>
                                 </MuiThemeProvider>
                             </div>

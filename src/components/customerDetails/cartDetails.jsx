@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import data2 from '../../assets/bookDetails.json';
+import data from '../../assets/bookDetails.json';
 // import AddToCard from '../addToCart';
 import { createMuiTheme, Divider, Button } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
@@ -73,8 +73,8 @@ class CartDetails extends Component {
                             return (
                                 <div className="get-card">
                                     {
-                                        data2.book_Details.map((books, id) => {
-                                            // if (key1 == books.id) {
+                                        data.book_Details.map((books, id) => { 
+                                            // if (key1 == books.logo1) {
                                             return (
                                                 <div>
                                                     <div key={id} className="card1">
@@ -117,7 +117,7 @@ class CartDetails extends Component {
                                 <span id="minus">-</span>
                             </Button></div>
                             <div className="toggle-btn"><Button onClick={() => this.ToggleClick()} >
-                                {this.state.show ? 'Remove' : 'Show number'}
+                                {this.state.show ? 'Remove' : 'Remove'}
                             </Button>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ class AddToCard extends Component {
             count: this.state.count++
         });
         console.log("addtocart button", this.state.open)
-        this.props.addtocarthandling(this.state.count, this.props.logo1)
+        this.props.addtocarthandling(this.state.count, this.props.logo)
 
     }
 

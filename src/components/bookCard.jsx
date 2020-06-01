@@ -47,10 +47,10 @@ class BookCard extends Component {
                         return (
                             <div key={id} className="card-div">
                                 <MuiThemeProvider theme={theme}>
-                                    {/* <BookDetails></BookDetails> */}
                                     <Card className="bookcard" style={{
                                         boxShadow: "0px 0px 0px 1px lightgrey",
-                                        backgroundColor: "#eeeeef"
+                                        backgroundColor: "#eeeeef",
+                                        borderRadius:"0px"
                                     }}>
                                         <div className="bookdetails">
                                             <div>
@@ -73,7 +73,7 @@ class BookCard extends Component {
                                                 })}
                                             </div>
                                         </div>
-                                        <AddToCard logp={books.logo} addtocarthandling={this.addcart}></AddToCard>
+                                        <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
                                     </Card>
                                 </MuiThemeProvider>
                             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import data from '../../assets/bookDetails.json';
-// import AddToCard from '../addToCart';
+import AddToCard from '../addToCart';
 import { createMuiTheme, Divider, Button } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
 import { AppBar1 } from '../appBar'
@@ -74,7 +74,7 @@ class CartDetails extends Component {
                                 <div className="get-card">
                                     {
                                         data.book_Details.map((books, id) => { 
-                                            // if (key1 == books.logo1) {
+                                            if (key1 == books.logo) {
                                             return (
                                                 <div>
                                                     <div key={id} className="card1">
@@ -99,10 +99,11 @@ class CartDetails extends Component {
                                                                     })}
                                                                 </div>
                                                             </div>
+                                                            <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
                                                         </MuiThemeProvider>
                                                     </div>
                                                 </div>)
-                                            // }
+                                            }
                                         })}
                                 </div>)
                         })}
@@ -112,7 +113,7 @@ class CartDetails extends Component {
                                     <span id="plus">+</span>
                                 </Button>
                             </div>
-                            <div className="count">{this.state.show ? <h2>{this.state.clicks}</h2> : ''}</div>
+                            <div className="count">{this.state.show ? <h2 id="number">{this.state.clicks}</h2> : ''}</div>
                             <div className="decrement"> <Button onClick={() => this.DecreaseItem()} >
                                 <span id="minus">-</span>
                             </Button></div>
@@ -215,8 +216,8 @@ class CartDetails extends Component {
                                 return (
                                     <div className="get-card">
                                         {
-                                            data2.book_Details.map((books, id) => {
-                                                // if (key1 == books.logo) {
+                                            data.book_Details.map((books, id) => {
+                                                if (key1 == books.logo) {
                                                 return (
                                                     <div>
                                                         <div key={id} className="card1">
@@ -241,10 +242,11 @@ class CartDetails extends Component {
                                                                         })}
                                                                     </div>
                                                                 </div>
+                                                                <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
                                                             </MuiThemeProvider>
                                                         </div>
                                                     </div>)
-                                                // }
+                                                }
                                             })}
                                     </div>)
                             })}

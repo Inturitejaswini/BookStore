@@ -4,14 +4,15 @@ import data from "../assets/bookDetails.json";
 import Card from '@material-ui/core/Card';
 import { createMuiTheme, Divider, Button } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core';
+// import BookDetails from "./bookDetails"
 import AddToCard from './addToCart';
 const theme = createMuiTheme({
     overrides: {
-        MuiButton: {
-            root: {
-                borderRadius: "0px"
-            }
-        },
+        // MuiButton: {
+        //     root: {
+        //         borderRadius: "0px"
+        //     }
+        // },
     },
 })
 
@@ -21,16 +22,22 @@ class BookCard extends Component {
         super(props)
         this.state = {
             open: false,
-            book_Details: []
+            book_Details: [],
+            count:"",
+            compareimage:"",
+            comparingimage:[]
         }
+        this.addcart = this.addcart.bind(this)
     }
-    addtocart(id) {
-
-        // window.open('/addToCard')
+    addcart(value1,value2){
+        var t=value2
+        this.state.comparingimage.push(t)
         this.setState({
-            open: !this.state.open
-        });
-        console.log("addtocart button", this.state.open)
+            count:value1,
+            compareimage: this.state.compareimage
+        })
+        localStorage.setItem('compareimage',this.state.comparingimage)
+        this.props.cartchange(value1,value2)
     }
     render() {
         return (
@@ -40,6 +47,7 @@ class BookCard extends Component {
                         return (
                             <div key={id} className="card-div">
                                 <MuiThemeProvider theme={theme}>
+                                    {/* <BookDetails></BookDetails> */}
                                     <Card className="bookcard" style={{
                                         boxShadow: "0px 0px 0px 1px lightgrey",
                                         backgroundColor: "#eeeeef"
@@ -65,7 +73,7 @@ class BookCard extends Component {
                                                 })}
                                             </div>
                                         </div>
-                                        <AddToCard></AddToCard>
+                                        <AddToCard logp={books.logo} addtocarthandling={this.addcart}></AddToCard>
                                     </Card>
                                 </MuiThemeProvider>
                             </div>

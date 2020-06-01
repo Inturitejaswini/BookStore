@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography'
 import Popper from '@material-ui/core/Popper'
 import { Paper } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import ShoppingCart from '@material-ui/icons/ShoppingCart'
+import Badge from '@material-ui/core/Badge';
 import data from "../../assets/bookDetails.json";
 // import image from '../assets/book.png'
 import './dashboard.less'
@@ -84,8 +87,11 @@ export class Dashboard extends Component {
             book_Details: data.book_Details,
             currentPage: 1,
             postsPerPage: 8,
+            cart: "",
+            imagecomparing: ""
         }
         this.paginate = this.paginate.bind(this)
+        this.cartchangee = this.cartchangee.bind(this)
     }
     paginate(pageNumber) {
         console.log("pagenumber", pageNumber)
@@ -94,23 +100,44 @@ export class Dashboard extends Component {
         })
         console.log("currentpage", this.state.currentPage)
     }
-
+    cartchangee(value1, value2) {
+        this.setState({
+            cart: value1,
+            imagecomparing: value2
+        })
+    }
+    handlecolormenu(event) {
+        this.setState({
+            anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+        })
+    }
+    handleClickAway() {
+        this.setState({
+            anchorEl: null
+        })
+    }
+    shopingCart() {
+        this.props.history.push('/cartDetails')
+    }
     render() {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
         const currentPosts = this.state.book_Details.slice(indexOfFirstPost, indexOfLastPost);
-
+        const { anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+        const id = open ? 'simple-popper' : undefined;
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky"  id="appbar-class"
+                    <AppBar position="sticky" id="appbar-class"
                         style={{
-                            backgroundColor: "Brown"}}>
+                            backgroundColor: "Brown"
+                        }}>
                         {/* <Toolbar className="toolbar" > */}
                         <div id="App-icons">
                             <div className="bookstore">
                                 <MenuBookIcon id="bookicon1" />
-                                 <h5 style={{ cursor: "pointer" }} className="bookstoretext">BookStore</h5>
+                                <h5 style={{ cursor: "pointer" }} className="bookstoretext">BookStore</h5>
                             </div>
                             <div className="search_box">
                                 <InputBase className="input-text" type="searchIcon" placeholder="Search.." />
@@ -118,22 +145,42 @@ export class Dashboard extends Component {
                             </div>
                             <div className="carttext">
                                 <h5 style={{ cursor: "pointer" }}>Cart</h5>
-                                <AddShoppingCartSharpIcon id="shopingcart" />
+                                {this.state.cart ? (
+                                    <div style={{ color: "white" }} onClick={()=>this.shopingCart()}>
+                                        <Badge badgeContent={1} color="secondary">
+                                            <ShoppingCart />
+                                        </Badge>
+                                    </div>
+                                ) : (
+                                        <div style={{ color: "white" }}>
+                                            <ShoppingCart />
+                                        </div>
+                                    )}
                             </div>
-                            </div> 
+                        </div>
                         {/* </Toolbar> */}
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
                     <div className="booktext1">
-                        <div className="class"><span>Books</span></div>
-                        <div className="Items"><span>(15items)</span></div>
-                        </div>
-                    <Button id="btn" >
+                        <span className="class">Books</span>
+                        <span className="Items">(15 items)</span>
+                    </div>
+                    <Button id="btn" aria-describedby={id} onClick={() => this.handlecolormenu}>
                         <div className="sorttext">sort by relevence</div>
                     </Button>
+                    <Popper id={id} open={open} anchorEl={anchorEl} style={{ zIndex: "9999" }}>
+                        <ClickAwayListener onClickAway={() => this.handleClickAway()}>
+                            <Paper className="colorlense-paper">
+                                <div id="colorpaper" >
+                                    <div style={{ fontSize: "large" }}></div>
+                                </div>
+                            </Paper>
+                        </ClickAwayListener>
+                    </Popper>
                 </div>
                 <BookCard
+                    cartchange={this.cartchangee}
                     book_Details={this.state.filterArray ? this.state.filterArray : currentPosts}></BookCard>
                 <Pagination
                     postsPerPage={this.state.postsPerPage}
@@ -144,7 +191,7 @@ export class Dashboard extends Component {
                     <AppBar position="sticky" id="bottomappbar"
                         style={{ backgroundColor: "black" }}>
                         {/* <Toolbar className="toolbar" > */}
-                            <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
+                        <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                         {/* </Toolbar> */}
                     </AppBar>
                 </div>

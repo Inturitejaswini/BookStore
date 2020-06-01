@@ -18,8 +18,8 @@
         "roles": [
           {
             "title": "React Material-Ui",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname":"Babur",
+            "price": "Rs.1300"
           }
         ]
       },
@@ -29,7 +29,7 @@
         "roles": [
           {
             "title": "SharePoint Framework",
-            "authorname": "by devid krug",
+            "authorname": "Kamal Surayya",
             "price": "Rs.1500"
           }
         ]
@@ -40,8 +40,8 @@
         "roles": [
           {
             "title": "UX Design",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Satyajit Ray",
+            "price": "Rs.1800"
           }
         ]
       },
@@ -51,8 +51,8 @@
         "roles": [
           {
             "title": "Group Discussion",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Aribam Syam",
+            "price": "Rs.700"
           }
         ]
       },
@@ -62,7 +62,7 @@
         "roles": [
           {
             "title": "Lean UX",
-            "authorname": "by devid krug",
+            "authorname": "Advin",
             "price": "Rs.1500"
           }
         ]
@@ -73,8 +73,8 @@
         "roles": [
           {
             "title": "UX Dummies",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Roald Dahl",
+            "price": "Rs.500"
           }
         ]
       },
@@ -84,8 +84,8 @@
         "roles": [
           {
             "title": "The Design Of Everythings",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Rick Riordan",
+            "price": "Rs.1600"
           }
         ]
       },
@@ -95,8 +95,8 @@
         "roles": [
           {
             "title": "Alchemist",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Stephen Mayer",
+            "price": "Rs.1200"
           }
         ]
       },
@@ -106,8 +106,8 @@
         "roles": [
           {
             "title": "Industrial Design",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Dean Knootz",
+            "price": "Rs.1000"
           }
         ]
       },
@@ -117,8 +117,8 @@
         "roles": [
           {
             "title": "The Theory Of Everything",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "George Orwell",
+            "price": "Rs.900"
           }
         ]
       },
@@ -128,8 +128,8 @@
         "roles": [
           {
             "title": "Technical Analysis Of Stock",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Dan Brown",
+            "price": "Rs.800"
           }
         ]
       },
@@ -139,8 +139,8 @@
         "roles": [
           {
             "title": "Evidence of TechnicalAnalysis",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Dr.Seuss",
+            "price": "Rs.1100"
           }
         ]
       },
@@ -150,8 +150,8 @@
         "roles": [
           {
             "title": "Cover Template",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "Nora Roberts",
+            "price": "Rs.1800"
           }
         ]
       },
@@ -161,8 +161,8 @@
         "roles": [
           {
             "title": "RRB",
-            "authorname": "by devid krug",
-            "price": "Rs.1500"
+            "authorname": "JaneAusten",
+            "price": "Rs.1300"
           }
         ]
       }

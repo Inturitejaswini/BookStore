@@ -5,16 +5,21 @@ class AddToCard extends Component {
         super(props)
         this.state = {
             open: false,
-            book_Details: []
+            book_Details: [],
+            id:"",
+            count:0
         }
+        this.addtocart = this.addtocart.bind(this)
     }
     addtocart(id) {
-
         // window.open('/addToCard')
         this.setState({
-            open: !this.state.open
+            open: !this.state.open,
+            count: this.state.count++
         });
         console.log("addtocart button", this.state.open)
+        this.props.addtocarthandling(this.state.count, this.props.logo1)
+
     }
 
     render() {
@@ -43,3 +48,5 @@ class AddToCard extends Component {
 }
 
 export default AddToCard;
+
+

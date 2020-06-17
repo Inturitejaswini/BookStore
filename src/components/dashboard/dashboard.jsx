@@ -1,23 +1,10 @@
 
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import Toolbar from '@material-ui/core/Toolbar';
-import { createMuiTheme } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core';
-import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import Typography from '@material-ui/core/Typography'
-import Popper from '@material-ui/core/Popper'
-import { Paper } from '@material-ui/core';
-import { Button } from '@material-ui/core';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import ShoppingCart from '@material-ui/icons/ShoppingCart'
-import Badge from '@material-ui/core/Badge';
+import { createMuiTheme ,MuiThemeProvider,Paper,Button,ClickAwayListener,AppBar, InputBase,Badge,Popper} from '@material-ui/core';
+import {SearchSharpIcon,MenuBookIcon,ShoppingCart,AddShoppingCartSharpIcon} from '@material-ui/icons';
 import data from "../../assets/bookDetails.json";
-// import image from '../assets/book.png'
 import './dashboard.less'
-import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
-import { AppBar, InputBase } from '@material-ui/core'
 import Pagination from '../pagination'
 import BookCard from '../bookCard'
 
@@ -94,11 +81,9 @@ export class Dashboard extends Component {
         this.cartchangee = this.cartchangee.bind(this)
     }
     paginate(pageNumber) {
-        console.log("pagenumber", pageNumber)
         this.setState({
             currentPage: pageNumber
         })
-        console.log("currentpage", this.state.currentPage)
     }
     cartchangee(value1, value2) {
         this.setState({
@@ -133,7 +118,6 @@ export class Dashboard extends Component {
                         style={{
                             backgroundColor: "Brown"
                         }}>
-                        {/* <Toolbar className="toolbar" > */}
                         <div id="App-icons">
                             <div className="bookstore">
                                 <MenuBookIcon id="bookicon1" />
@@ -158,7 +142,6 @@ export class Dashboard extends Component {
                                     )}
                             </div>
                         </div>
-                        {/* </Toolbar> */}
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
@@ -190,9 +173,7 @@ export class Dashboard extends Component {
                 <div>
                     <AppBar position="sticky" id="bottomappbar"
                         style={{ backgroundColor: "black" }}>
-                        {/* <Toolbar className="toolbar" > */}
                         <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
-                        {/* </Toolbar> */}
                     </AppBar>
                 </div>
             </div >

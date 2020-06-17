@@ -1,18 +1,11 @@
 
 import React, { Component } from 'react';
 import data from "../assets/bookDetails.json";
-import Card from '@material-ui/core/Card';
-import { createMuiTheme, Divider, Button } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core';
-// import BookDetails from "./bookDetails"
+import { createMuiTheme, Divider, Button, MuiThemeProvider, Card } from '@material-ui/core';
 import AddToCard from './addToCart';
 const theme = createMuiTheme({
     overrides: {
-        // MuiButton: {
-        //     root: {
-        //         borderRadius: "0px"
-        //     }
-        // },
+
     },
 })
 
@@ -23,21 +16,21 @@ class BookCard extends Component {
         this.state = {
             open: false,
             book_Details: [],
-            count:"",
-            compareimage:"",
-            comparingimage:[]
+            count: "",
+            compareimage: "",
+            comparingimage: []
         }
         this.addcart = this.addcart.bind(this)
     }
-    addcart(value1,value2){
-        var t=value2
+    addcart(value1, value2) {
+        var t = value2
         this.state.comparingimage.push(t)
         this.setState({
-            count:value1,
+            count: value1,
             compareimage: this.state.compareimage
         })
-        localStorage.setItem('compareimage',this.state.comparingimage)
-        this.props.cartchange(value1,value2)
+        localStorage.setItem('compareimage', this.state.comparingimage)
+        this.props.cartchange(value1, value2)
     }
     render() {
         return (
@@ -50,7 +43,7 @@ class BookCard extends Component {
                                     <Card className="bookcard" style={{
                                         boxShadow: "0px 0px 0px 1px lightgrey",
                                         backgroundColor: "#eeeeef",
-                                        borderRadius:"0px"
+                                        borderRadius: "0px"
                                     }}>
                                         <div className="bookdetails">
                                             <div>
@@ -85,13 +78,3 @@ class BookCard extends Component {
     }
 }
 export default BookCard;
-
-
-// {this.state.addtocart ? (
-//     <div className="Addddddiv">Add to bag</div>
-// ) : (
-//         <div className="minidivb">
-//             <div className="Adddiv" onClick={() => this.addtocart()}>Add to bag</div>
-//             <div className="whisilistdiv">wishilst</div>
-//         </div>
-//     )}

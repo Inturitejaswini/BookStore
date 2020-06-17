@@ -12,12 +12,10 @@ class AddToCard extends Component {
         this.addtocart = this.addtocart.bind(this)
     }
     addtocart(id) {
-        // window.open('/addToCard')
         this.setState({
             open: !this.state.open,
             count: this.state.count++
         });
-        console.log("addtocart button", this.state.open)
         this.props.addtocarthandling(this.state.count, this.props.logo)
 
     }

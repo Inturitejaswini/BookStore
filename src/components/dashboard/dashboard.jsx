@@ -144,11 +144,11 @@ export class Dashboard extends Component {
                                 <SearchSharpIcon className="icon" />
                             </div>
                             <div className="carttext">
-                                <h5 style={{ cursor: "pointer" }}>Cart</h5>
+                                <h5 >Cart</h5>
                                 {this.state.cart ? (
                                     <div style={{ color: "white" }} onClick={()=>this.shopingCart()}>
-                                        <Badge badgeContent={1} color="secondary">
-                                            <ShoppingCart />
+                                        <Badge badgeContent={1} color="secondary" >
+                                            <ShoppingCart style={{ cursor: "pointer" }}/>
                                         </Badge>
                                     </div>
                                 ) : (
@@ -162,7 +162,7 @@ export class Dashboard extends Component {
                     </AppBar>
                 </MuiThemeProvider>
                 <div className="textbutton">
-                    <div className="booktext1">
+                    <div className="booktext">
                         <span className="class">Books</span>
                         <span className="Items">(15 items)</span>
                     </div>

@@ -56,7 +56,7 @@ class BookDetails extends Component {
                                                 <p>Email Us</p>
                                             </div>
                                             <div class="Cell">
-                                                <p>Contact Us</p>
+                                                <p id="contact-us">Contact Us</p>
                                             </div>
                                             <div class="Cell">
                                                 <p>Address</p>
@@ -72,7 +72,7 @@ class BookDetails extends Component {
                                             <div class="Cell">
                                                 <p>42,14th Main,15th Cross,Sector4,
                                                 opp to BDA complex,Near Kumarakom
-                                                    Restaurent,Hsr Layout,Bngalore 560034</p>
+                                                Restaurent,Hsr Layout,Bngalore 560034</p>
                                             </div>
                                         </div>
                                     </div>

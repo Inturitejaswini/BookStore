@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import data from '../../assets/bookDetails.json';
 import AddToCard from '../addToCart';
-import { createMuiTheme, Divider, Button } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core';
 import { AppBar1 } from '../appBar'
 import './CartDetails.less'
-import { Card, TextField, Radio, FormLabel, FormControl, FormControlLabel, RadioGroup, AppBar } from '@material-ui/core';
+import { Card, TextField, Radio, FormLabel, FormControl, FormControlLabel, RadioGroup, AppBar,MuiThemeProvider,createMuiTheme, Divider, Button} from '@material-ui/core';
 const theme = createMuiTheme({
     overrides: {
         MuiButton: {
@@ -61,7 +59,6 @@ class CartDetails extends Component {
 
     render() {
         const token = localStorage.compareimage
-        console.log("hvvjbjbvvhbdwfdws", token)
         return (
             <div>
                 <AppBar1></AppBar1>
@@ -73,36 +70,36 @@ class CartDetails extends Component {
                             return (
                                 <div className="get-card">
                                     {
-                                        data.book_Details.map((books, id) => { 
+                                        data.book_Details.map((books, id) => {
                                             if (key1 == books.logo) {
-                                            return (
-                                                <div>
-                                                    <div key={id} className="card1">
-                                                        <MuiThemeProvider theme={theme}>
-                                                            <div className="bookdetails">
-                                                                <div>
-                                                                    <a href={books.url}>
-                                                                        <img src={books.logo} className="cardimage" />
-                                                                    </a>
-                                                                </div>
-                                                                <div style={{ backgroundColor: "white" }} className="carddown">
-                                                                    {books.roles.map(function (role, id) {
-                                                                        return <div key={id} id="cardtext2">
-                                                                            <h5>{role.title}</h5>
-                                                                            <div className="authorname">
-                                                                                <span>{role.authorname}</span>
+                                                return (
+                                                    <div>
+                                                        <div key={id} className="card1">
+                                                            <MuiThemeProvider theme={theme}>
+                                                                <div className="bookdetails">
+                                                                    <div>
+                                                                        <a href={books.url}>
+                                                                            <img src={books.logo} className="cardimage" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div style={{ backgroundColor: "white" }} className="carddown">
+                                                                        {books.roles.map(function (role, id) {
+                                                                            return <div key={id} id="cardtext2">
+                                                                                <h5>{role.title}</h5>
+                                                                                <div className="authorname">
+                                                                                    <span>{role.authorname}</span>
+                                                                                </div>
+                                                                                <div className="price">
+                                                                                    <p>{role.price}</p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div className="price">
-                                                                                <p>{role.price}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    })}
+                                                                        })}
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
-                                                        </MuiThemeProvider>
-                                                    </div>
-                                                </div>)
+                                                                <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
+                                                            </MuiThemeProvider>
+                                                        </div>
+                                                    </div>)
                                             }
                                         })}
                                 </div>)
@@ -145,12 +142,12 @@ class CartDetails extends Component {
                                 <h4 id="customer-text">Customer Details</h4>
                                 <div>
                                     <div id="textfeild">
-                                        <TextField className="namefeild" id="outlined-Name-input" label="Name" type="Name" autoComplete="current-Name" variant="outlined"/>
-                                        <TextField id="outlined-Phone Number-input"label="Phone Number" type="Phone Number" autoComplete="current-Phone Number" variant="outlined"/>
+                                        <TextField className="namefeild" id="outlined-Name-input" label="Name" type="Name" autoComplete="current-Name" variant="outlined" />
+                                        <TextField id="outlined-Phone Number-input" label="Phone Number" type="Phone Number" autoComplete="current-Phone Number" variant="outlined" />
                                     </div>
                                     <div id="textfeild">
-                                        <TextField id="outlined-Pincode-input"label="Pincode" type="Pincode"autoComplete="current-Pincode" variant="outlined"/>
-                                        <TextField id="outlined-Locality-input"label="Locality"type="Locality" autoComplete="current-Locality" variant="outlined"/>
+                                        <TextField id="outlined-Pincode-input" label="Pincode" type="Pincode" autoComplete="current-Pincode" variant="outlined" />
+                                        <TextField id="outlined-Locality-input" label="Locality" type="Locality" autoComplete="current-Locality" variant="outlined" />
                                     </div>
                                     <div id="textfeild">
                                         <TextField
@@ -218,34 +215,34 @@ class CartDetails extends Component {
                                         {
                                             data.book_Details.map((books, id) => {
                                                 if (key1 == books.logo) {
-                                                return (
-                                                    <div>
-                                                        <div key={id} className="card1">
-                                                            <MuiThemeProvider theme={theme}>
-                                                                <div className="bookdetails">
-                                                                    <div>
-                                                                        <a href={books.url}>
-                                                                            <img src={books.logo} className="cardimage" />
-                                                                        </a>
-                                                                    </div>
-                                                                    <div style={{ backgroundColor: "white" }} className="carddown">
-                                                                        {books.roles.map(function (role, id) {
-                                                                            return <div key={id} id="cardtext2">
-                                                                                <h5>{role.title}</h5>
-                                                                                <div className="authorname">
-                                                                                    <span>{role.authorname}</span>
+                                                    return (
+                                                        <div>
+                                                            <div key={id} className="card1">
+                                                                <MuiThemeProvider theme={theme}>
+                                                                    <div className="bookdetails">
+                                                                        <div>
+                                                                            <a href={books.url}>
+                                                                                <img src={books.logo} className="cardimage" />
+                                                                            </a>
+                                                                        </div>
+                                                                        <div style={{ backgroundColor: "white" }} className="carddown">
+                                                                            {books.roles.map(function (role, id) {
+                                                                                return <div key={id} id="cardtext2">
+                                                                                    <h5>{role.title}</h5>
+                                                                                    <div className="authorname">
+                                                                                        <span>{role.authorname}</span>
+                                                                                    </div>
+                                                                                    <div className="price">
+                                                                                        <p>{role.price}</p>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div className="price">
-                                                                                    <p>{role.price}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        })}
+                                                                            })}
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
-                                                            </MuiThemeProvider>
-                                                        </div>
-                                                    </div>)
+                                                                    <AddToCard logo={books.logo} addtocarthandling={this.addcart}></AddToCard>
+                                                                </MuiThemeProvider>
+                                                            </div>
+                                                        </div>)
                                                 }
                                             })}
                                     </div>)

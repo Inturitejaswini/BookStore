@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Button ,AppBar} from '@material-ui/core'
+import { Card, Button ,AppBar, MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 import data1 from './orederSuccessful.json'
 import { AppBar1 } from '../appBar';
 import './bookDetails.less'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 const theme = createMuiTheme({
     overrides: {
         MuiButton: {
@@ -89,9 +88,7 @@ class BookDetails extends Component {
                 <div>
                     <AppBar position="sticky" id="bottomappbar"
                         style={{ backgroundColor: "black" }}>
-                        {/* <Toolbar className="toolbar" > */}
                         <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
-                        {/* </Toolbar> */}
                     </AppBar>
                 </div>
             </div>

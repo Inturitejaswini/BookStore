@@ -1,15 +1,8 @@
 
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import Toolbar from '@material-ui/core/Toolbar';
-import { createMuiTheme } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core';
-import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-// import data from "../../assets/bookDetails.json";
-// import './dashboard.less'
-import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
-import { AppBar, InputBase } from '@material-ui/core'
+import { createMuiTheme, MuiThemeProvider, AppBar, InputBase, Toolbar } from '@material-ui/core';
+import { SearchSharpIcon, MenuBookIcon, AddShoppingCartSharpIcon } from '@material-ui/icons';
 
 const theme = createMuiTheme({
     overrides: {
@@ -76,9 +69,9 @@ export class AppBar1 extends Component {
             open: false,
         }
     }
-   
+
     render() {
-       
+
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>

@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import { createMuiTheme ,MuiThemeProvider,Paper,Button,ClickAwayListener,AppBar, InputBase,Badge,Popper} from '@material-ui/core';
-import {SearchSharpIcon,MenuBookIcon,ShoppingCart,AddShoppingCartSharpIcon} from '@material-ui/icons';
+import { createMuiTheme ,MuiThemeProvider,Button,AppBar, InputBase,Badge} from '@material-ui/core';
+import {SearchSharpIcon,MenuBookIcon,ShoppingCart} from '@material-ui/icons';
 import data from "../../assets/bookDetails.json";
 import './dashboard.less'
 import Pagination from '../pagination'
@@ -91,11 +91,6 @@ export class Dashboard extends Component {
             imagecomparing: value2
         })
     }
-    handlecolormenu(event) {
-        this.setState({
-            anchorEl: (this.state.anchorEl ? null : event.currentTarget)
-        })
-    }
     handleClickAway() {
         this.setState({
             anchorEl: null
@@ -108,16 +103,10 @@ export class Dashboard extends Component {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
         const currentPosts = this.state.book_Details.slice(indexOfFirstPost, indexOfLastPost);
-        const { anchorEl } = this.state;
-        const open = Boolean(anchorEl);
-        const id = open ? 'simple-popper' : undefined;
         return (
             <div id="dashboard-appbar">
                 <MuiThemeProvider theme={theme}>
-                    <AppBar position="sticky" id="appbar-class"
-                        style={{
-                            backgroundColor: "Brown"
-                        }}>
+                    <AppBar position="sticky" id="appbar-class">
                         <div id="App-icons">
                             <div className="bookstore">
                                 <MenuBookIcon id="bookicon1" />
@@ -136,7 +125,7 @@ export class Dashboard extends Component {
                                         </Badge>
                                     </div>
                                 ) : (
-                                        <div style={{ color: "white" }}>
+                                        <div >
                                             <ShoppingCart />
                                         </div>
                                     )}
@@ -149,18 +138,9 @@ export class Dashboard extends Component {
                         <span className="class">Books</span>
                         <span className="Items">(15 items)</span>
                     </div>
-                    <Button id="btn" aria-describedby={id} onClick={() => this.handlecolormenu}>
+                    <Button id="btn" onClick={() => this.handlecolormenu}>
                         <div className="sorttext">sort by relevence</div>
                     </Button>
-                    <Popper id={id} open={open} anchorEl={anchorEl} style={{ zIndex: "9999" }}>
-                        <ClickAwayListener onClickAway={() => this.handleClickAway()}>
-                            <Paper className="colorlense-paper">
-                                <div id="colorpaper" >
-                                    <div style={{ fontSize: "large" }}></div>
-                                </div>
-                            </Paper>
-                        </ClickAwayListener>
-                    </Popper>
                 </div>
                 <BookCard
                     cartchange={this.cartchangee}
@@ -171,8 +151,7 @@ export class Dashboard extends Component {
                     pagination={this.paginate}
                 ></Pagination>
                 <div>
-                    <AppBar position="sticky" id="bottomappbar"
-                        style={{ backgroundColor: "black" }}>
+                    <AppBar position="sticky" id="bottomappbar">
                         <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                     </AppBar>
                 </div>

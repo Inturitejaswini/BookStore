@@ -40,11 +40,7 @@ class BookCard extends Component {
                         return (
                             <div key={id} className="card-div">
                                 <MuiThemeProvider theme={theme}>
-                                    <Card className="bookcard" style={{
-                                        boxShadow: "0px 0px 0px 1px lightgrey",
-                                        backgroundColor: "#eeeeef",
-                                        borderRadius: "0px"
-                                    }}>
+                                    <Card className="bookcard">
                                         <div className="bookdetails">
                                             <div>
                                                 <a href={books.url}>

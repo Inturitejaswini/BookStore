@@ -62,8 +62,7 @@ class CartDetails extends Component {
         return (
             <div>
                 <AppBar1></AppBar1>
-                <Card className="Cart-card"
-                    style={{ boxShadow: "0px 0px 0px 1px grey" }}>
+                <Card className="Cart-card">
                     <div>
                         <h4 className="carttext1">My Cart(2)</h4>
                         {token.split(",").map(key1 => {
@@ -130,15 +129,13 @@ class CartDetails extends Component {
                 </Card>
                 {!this.state.open1 ? (
                     <div >
-                        <Card className="card-div2"
-                            style={{ boxShadow: "0px 0px 0px 1px grey" }}>
+                        <Card className="card-div2">
                             <h4 id="customer-text">Customer Details</h4>
                         </Card>
                     </div>)
                     : (
                         <div>
-                            <Card className="card-dive3"
-                                style={{ boxShadow: "0px 0px 0px 1px grey" }}>
+                            <Card className="card-dive3">
                                 <h4 id="customer-text">Customer Details</h4>
                                 <div>
                                     <div id="textfeild">
@@ -200,14 +197,12 @@ class CartDetails extends Component {
                     )}
                 {!this.state.open2 ? (
                     <div >
-                        <Card className="card-div2"
-                            style={{ boxShadow: "0px 0px 0px 1px grey" }}>
+                        <Card className="card-div2">
                             <h4 id="customer-text">Order Summery</h4>
                         </Card >
                     </div >)
                     : (<div>
-                        <Card className="card-div5"
-                            style={{ boxShadow: "0px 0px 0px 1px grey" }}>
+                        <Card className="card-div5">
                             <h4 id="customer-text">Order Summery</h4>
                             {token.split(",").map(key1 => {
                                 return (
@@ -257,8 +252,7 @@ class CartDetails extends Component {
                         </Card>
                     </div>)}
                 <div>
-                    <AppBar position="sticky" id="bottomappbar2"
-                        style={{ backgroundColor: "black" }}>
+                    <AppBar position="sticky" id="bottomappbar2">
                         <div className="appbar2">Copyright@2020,Bookstore Private Limited.All Rights Reserved</div>
                     </AppBar>
                 </div>
